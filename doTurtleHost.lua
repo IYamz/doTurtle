@@ -22,3 +22,15 @@ write(appName .. " " .. version)
 term.setCursorPos(1,3)
 write("Use 'help' for a list of commands")
 term.setCursorPos(1, 5)
+
+while true do
+  write("> ")
+  local input = read()
+  for i,command in pairs(commands) do
+    if command.name == input then
+      command.func()
+      return
+    end
+    print("Command not found!")
+  end
+end
